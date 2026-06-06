@@ -1,0 +1,89 @@
+html { 
+    scroll-behavior: smooth; 
+}
+
+.nav-link { 
+    position: relative; 
+    font-size: 1.15rem; 
+    font-weight: 800; 
+}
+
+.nav-link::after {
+    content: ''; 
+    position: absolute; 
+    width: 0; 
+    height: 3px;
+    bottom: -4px; 
+    left: 0; 
+    background-color: #E50914; 
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after { 
+    width: 100%; 
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-float { 
+    animation: float 5s ease-in-out infinite; 
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-up { 
+    animation: slideUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; 
+}
+
+.modal-overlay { 
+    display: none; 
+}
+
+.modal-overlay.active { 
+    display: flex; 
+    animation: fadeIn 0.3s ease; 
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; } 
+    to { opacity: 1; } 
+}
+
+.no-save { 
+    user-select: none; 
+    -webkit-user-drag: none; 
+    pointer-events: none; 
+}
+
+.protection-layer {
+    position: absolute; 
+    inset: 0;
+    background: rgba(229, 9, 20, 0.03);
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.01) 35px, rgba(255,255,255,.01) 70px);
+    pointer-events: none;
+}
+
+.project-card { 
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.project-card.hidden-item { 
+    opacity: 0; 
+    transform: scale(0.8); 
+    display: none; 
+}
+
+/* Hardened system rule to ensure footer SVGs are always visible and perfectly sized */
+#connect .group svg,
+#connect a svg {
+    width: 40px !important;
+    height: 40px !important;
+    display: inline-block !important;
+}

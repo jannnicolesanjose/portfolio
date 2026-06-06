@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Jann Nicole San Jose</title>
     
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+    <link class="no-save" rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+
+    <link rel="stylesheet" href="style.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -23,50 +25,15 @@
             }
         }
     </script>
-    <style>
-        html { scroll-behavior: smooth; }
-        
-        .nav-link { 
-            position: relative; 
-            font-size: 1.15rem; 
-            font-weight: 800; 
-        }
-        .nav-link::after {
-            content: ''; position: absolute; width: 0; height: 3px;
-            bottom: -4px; left: 0; background-color: #E50914; transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width: 100%; }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        .animate-float { animation: float 5s ease-in-out infinite; }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-slide-up { animation: slideUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-
-        .modal-overlay { display: none; }
-        .modal-overlay.active { display: flex; animation: fadeIn 0.3s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .no-save { user-select: none; -webkit-user-drag: none; pointer-events: none; }
-        .protection-layer {
-            position: absolute; inset: 0;
-            background: rgba(229, 9, 20, 0.03);
-            background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.01) 35px, rgba(255,255,255,.01) 70px);
-            pointer-events: none;
-        }
-
-        .project-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .project-card.hidden-item { opacity: 0; transform: scale(0.8); display: none; }
-    </style>
 </head>
 <body class="bg-lightBg dark:bg-darkBg text-slate-900 dark:text-gray-100 transition-colors duration-500 font-sans">
+
+    <div id="system-toast" class="fixed top-6 left-1/2 -translate-x-1/2 z-[200] transform scale-95 opacity-0 pointer-events-none transition-all duration-300 ease-out">
+        <div class="bg-slate-900/95 dark:bg-white/95 text-white dark:text-black font-mono text-xs uppercase tracking-widest font-bold px-6 py-4 rounded-xl shadow-2xl backdrop-blur-md border border-gray-800 dark:border-gray-200 flex items-center gap-3">
+            <i data-lucide="check-circle" class="w-4 h-4 text-primary"></i>
+            <span id="toast-message">Action Complete</span>
+        </div>
+    </div>
 
     <nav class="fixed w-full z-50 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 px-6 py-5">
         <div class="max-w-7xl mx-auto grid grid-cols-3 items-center">
@@ -80,7 +47,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#certificates" class="nav-link">Education</a></li>
-                <li><a href="#connect" class="nav-link text-primary">Contact</a></li>
+                <li><a href="#connect" class="nav-link">Contact</a></li>
             </ul>
             
             <div class="flex justify-end">
@@ -93,7 +60,7 @@
 
     <section id="home" class="h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
         <div class="mb-12 relative animate-float">
-            <img src="assets/images/profile.jpg" alt="Profile" class="w-64 h-64 rounded-full border-4 border-primary shadow-[0_0_50px_rgba(229,9,20,0.4)] object-cover">
+            <img src="assets/images/id4.jpg" alt="Profile" class="w-64 h-64 rounded-full border-4 border-primary shadow-[0_0_50px_rgba(229,9,20,0.4)] object-cover">
         </div>
         
         <div class="animate-slide-up">
@@ -103,9 +70,12 @@
             <p class="text-gray-500 max-w-lg mx-auto mb-12 font-mono italic text-xl">
                 "Building systems that bridge logic and human experience."
             </p>
-            <div class="flex justify-center">
-                <a href="assets/docs/JannNicole_SanJose_CV.pdf" download class="flex items-center gap-4 border-2 border-primary text-primary px-14 py-5 rounded-xl font-bold hover:bg-primary hover:text-white transition-all shadow-lg shadow-primary/20 text-xl group">
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="assets\docs\SanJose-UpdatedResume.pdf" download class="flex items-center justify-center gap-4 border-2 border-primary text-primary px-10 py-5 rounded-xl font-bold hover:bg-primary hover:text-white transition-all shadow-lg shadow-primary/20 text-xl group">
                     <i data-lucide="download" class="w-6 h-6 group-hover:scale-110 transition-transform"></i> Download CV
+                </a>
+                <a href="https://jannnicolesanjose.jobs180.com/" target="_blank" class="flex items-center justify-center gap-4 border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white px-10 py-5 rounded-xl font-bold hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all shadow-lg text-xl group">
+                    <i data-lucide="external-link" class="w-6 h-6 group-hover:scale-110 transition-transform"></i> View Resume
                 </a>
             </div>
         </div>
@@ -123,61 +93,86 @@
             </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-gray-50 dark:bg-gray-900/50 p-10 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-xl">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 dark:bg-gray-900/50 p-8 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-xl">
                 <div class="flex items-center gap-3 mb-8">
                     <i data-lucide="code-2" class="text-primary w-6 h-6"></i>
                     <h3 class="font-bold text-primary uppercase tracking-widest text-sm italic">// Technical Stack</h3>
                 </div>
-                <div class="grid grid-cols-2 gap-5 text-slate-900 dark:text-white">
-                    <div class="flex items-center gap-4 p-4 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-8 h-8" alt="Python"/>
-                        <span class="font-mono font-bold uppercase text-xs">Python</span>
+                <div class="grid grid-cols-2 gap-4 text-slate-900 dark:text-white">
+                    <div class="flex items-center gap-3 p-3 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-6 h-6" alt="Python"/>
+                        <span class="font-mono font-bold uppercase text-[10px]">Python</span>
                     </div>
-                    <div class="flex items-center gap-4 p-4 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-8 h-8" alt="JS"/>
-                        <span class="font-mono font-bold uppercase text-xs">JavaScript</span>
+                    <div class="flex items-center gap-3 p-3 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-6 h-6" alt="JS"/>
+                        <span class="font-mono font-bold uppercase text-[10px]">JavaScript</span>
                     </div>
-                    <div class="flex items-center gap-4 p-4 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" class="w-8 h-8" alt="Flutter"/>
-                        <span class="font-mono font-bold uppercase text-xs">Flutter</span>
+                    <div class="flex items-center gap-3 p-3 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" class="w-6 h-6" alt="Flutter"/>
+                        <span class="font-mono font-bold uppercase text-[10px]">Flutter</span>
                     </div>
-                    <div class="flex items-center gap-4 p-4 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="w-8 h-8" alt="Java"/>
-                        <span class="font-mono font-bold uppercase text-xs">Java</span>
+                    <div class="flex items-center gap-3 p-3 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="w-6 h-6" alt="Java"/>
+                        <span class="font-mono font-bold uppercase text-[10px]">Java</span>
                     </div>
-                    <div class="flex items-center gap-4 p-4 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-8 h-8" alt="HTML"/>
-                        <span class="font-mono font-bold uppercase text-xs">HTML</span>
+                    <div class="flex items-center gap-3 p-3 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-6 h-6" alt="HTML"/>
+                        <span class="font-mono font-bold uppercase text-[10px]">HTML</span>
                     </div>
-                    <div class="flex items-center gap-4 p-4 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-8 h-8" alt="CSS"/>
-                        <span class="font-mono font-bold uppercase text-xs">CSS</span>
+                    <div class="flex items-center gap-3 p-3 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-6 h-6" alt="CSS"/>
+                        <span class="font-mono font-bold uppercase text-[10px]">CSS</span>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-gray-50 dark:bg-gray-900/50 p-10 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-xl">
+            <div class="bg-gray-50 dark:bg-gray-900/50 p-8 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-xl">
+                <div class="flex items-center gap-3 mb-8">
+                    <i data-lucide="check-square" class="text-primary w-6 h-6"></i>
+                    <h3 class="font-bold text-primary uppercase tracking-widest text-sm italic">// QA & Automation</h3>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-slate-900 dark:text-white">
+                    <div class="flex items-center gap-3 p-3 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/playwright/playwright-original.svg" class="w-6 h-6" alt="Playwright"/>
+                        <span class="font-mono font-bold uppercase text-[10px]">Playwright</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" class="w-6 h-6" alt="Jira"/>
+                        <span class="font-mono font-bold uppercase text-[10px]">Jira</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-6 h-6" alt="Git"/>
+                        <span class="font-mono font-bold uppercase text-[10px]">Git</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg" class="w-6 h-6" alt="Bitbucket"/>
+                        <span class="font-mono font-bold uppercase text-[10px]">Bitbucket</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-gray-900/50 p-8 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-xl">
                 <div class="flex items-center gap-3 mb-8">
                     <i data-lucide="palette" class="text-primary w-6 h-6"></i>
                     <h3 class="font-bold text-primary uppercase tracking-widest text-sm italic">// Creative & Productivity</h3>
                 </div>
-                <div class="grid grid-cols-2 gap-5 text-slate-900 dark:text-white">
-                    <div class="flex items-center gap-4 p-4 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="w-8 h-8" alt="figma"/>
-                        <span class="font-mono font-bold uppercase text-xs">Figma</span>
+                <div class="grid grid-cols-2 gap-4 text-slate-900 dark:text-white">
+                    <div class="flex items-center gap-3 p-3 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="w-6 h-6" alt="figma"/>
+                        <span class="font-mono font-bold uppercase text-[10px]">Figma</span>
                     </div>
-                    <div class="flex items-center gap-4 p-4 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
-                        <img src="https://img.icons8.com/color/48/canva.png" class="w-8 h-8" alt="Canva"/>
-                        <span class="font-mono font-bold uppercase text-xs">Canva</span>
+                    <div class="flex items-center gap-3 p-3 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
+                        <img src="https://img.icons8.com/color/48/canva.png" class="w-6 h-6" alt="Canva"/>
+                        <span class="font-mono font-bold uppercase text-[10px]">Canva</span>
                     </div>
-                    <div class="flex items-center gap-4 p-4 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
-                        <img src="https://img.icons8.com/fluent/48/microsoft-word-2019.png" class="w-8 h-8" alt="Microsoft Word"/>
-                        <span class="font-mono font-bold uppercase text-xs">Word</span>
+                    <div class="flex items-center gap-3 p-3 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
+                        <img src="https://img.icons8.com/fluent/48/microsoft-word-2019.png" class="w-6 h-6" alt="Microsoft Word"/>
+                        <span class="font-mono font-bold uppercase text-[10px]">Word</span>
                     </div>
-                    <div class="flex items-center gap-4 p-4 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
-                        <img src="https://img.icons8.com/fluent/48/microsoft-excel-2019.png" class="w-8 h-8" alt="Microsoft Excel"/>
-                        <span class="font-mono font-bold uppercase text-xs">Excel</span>
+                    <div class="flex items-center gap-3 p-3 bg-white dark:bg-black rounded-xl border border-gray-100 dark:border-gray-800 transition-transform hover:scale-105">
+                        <img src="https://img.icons8.com/fluent/48/microsoft-excel-2019.png" class="w-6 h-6" alt="Microsoft Excel"/>
+                        <span class="font-mono font-bold uppercase text-[10px]">Excel</span>
                     </div>
                 </div>
             </div>
@@ -202,42 +197,70 @@
         </div>
         
         <div id="project-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <div class="project-card p-10 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-primary/30 rounded-3xl hover:shadow-2xl hover:shadow-primary/10 text-slate-900 dark:text-white text-center" data-category="web">
-                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Regex Converter</h3>
-                <p class="text-sm text-gray-500 mb-10 font-mono">Natural language to Regex tool.</p>
-                <a href="https://regexconverter.onrender.com/" target="_blank" class="block w-full text-center py-5 bg-primary text-white font-bold rounded-xl hover:brightness-110 transition shadow-lg shadow-primary/20 uppercase tracking-widest text-sm">Launch Live Site</a>
+            <div class="project-card p-10 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-primary/30 rounded-3xl hover:shadow-2xl hover:shadow-primary/10 text-slate-900 dark:text-white text-center flex flex-col justify-between h-full" data-category="web">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Regex Converter</h3>
+                    <p class="text-sm text-gray-500 mb-10 font-mono">Natural language to Regex tool.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-auto">
+                    <a href="https://regexconverter.onrender.com/" target="_blank" class="py-4 bg-primary text-white font-bold rounded-xl hover:brightness-110 transition shadow-lg shadow-primary/20 uppercase tracking-widest text-[11px] flex items-center justify-center">Launch Site</a>
+                    <a href="projects/regex-converter.html" class="py-4 border-2 border-gray-300 dark:border-gray-700 text-slate-700 dark:text-gray-300 font-bold rounded-xl hover:border-primary hover:text-primary transition uppercase tracking-widest text-[11px] flex items-center justify-center">Case Study</a>
+                </div>
             </div>
 
-            <div class="project-card p-10 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-primary/30 rounded-3xl hover:shadow-2xl hover:shadow-primary/10 text-slate-900 dark:text-white text-center" data-category="web">
-                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Mnemonic Void</h3>
-                <p class="text-sm text-gray-500 mb-10 font-mono">A digital time capsule that bridges the gap between a user’s current emotional state and their future self.</p>
-                <a href="https://jannnicolesanjose.github.io/Mnemonic-Void/" target="_blank" class="block w-full text-center py-5 bg-primary text-white font-bold rounded-xl hover:brightness-110 transition shadow-lg shadow-primary/20 uppercase tracking-widest text-sm">Launch Live Site</a>
+            <div class="project-card p-10 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-primary/30 rounded-3xl hover:shadow-2xl hover:shadow-primary/10 text-slate-900 dark:text-white text-center flex flex-col justify-between h-full" data-category="web">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Mnemonic Void</h3>
+                    <p class="text-sm text-gray-500 mb-10 font-mono">A digital time capsule that bridges the gap between a user’s current emotional state and their future self.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-auto">
+                    <a href="https://jannnicolesanjose.github.io/Mnemonic-Void/" target="_blank" class="py-4 bg-primary text-white font-bold rounded-xl hover:brightness-110 transition shadow-lg shadow-primary/20 uppercase tracking-widest text-[11px] flex items-center justify-center">Launch Site</a>
+                    <a href="projects/mnemonic-void.html" class="py-4 border-2 border-gray-300 dark:border-gray-700 text-slate-700 dark:text-gray-300 font-bold rounded-xl hover:border-primary hover:text-primary transition uppercase tracking-widest text-[11px] flex items-center justify-center">Case Study</a>
+                </div>
             </div>
 
-            <div class="project-card p-10 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-primary/30 rounded-3xl hover:shadow-2xl hover:shadow-primary/10 text-slate-900 dark:text-white text-center" data-category="web">
-                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">KAWAY: American Sign Language Detection</h3>
-                <p class="text-sm text-gray-500 mb-10 font-mono">AI-powered ASL detection system.</p>
-                <a href="https://kaway.onrender.com/" target="_blank" class="block w-full text-center py-5 bg-primary text-white font-bold rounded-xl hover:brightness-110 transition shadow-lg shadow-primary/20 uppercase tracking-widest text-sm">Launch Live Site</a>
+            <div class="project-card p-10 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-primary/30 rounded-3xl hover:shadow-2xl hover:shadow-primary/10 text-slate-900 dark:text-white text-center flex flex-col justify-between h-full" data-category="web">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">KAWAY: Sign Language</h3>
+                    <p class="text-sm text-gray-500 mb-10 font-mono">AI-powered ASL detection system.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-auto">
+                    <a href="https://kaway.onrender.com/" target="_blank" class="py-4 bg-primary text-white font-bold rounded-xl hover:brightness-110 transition shadow-lg shadow-primary/20 uppercase tracking-widest text-[11px] flex items-center justify-center">Launch Site</a>
+                    <a href="projects/kaway.html" class="py-4 border-2 border-gray-300 dark:border-gray-700 text-slate-700 dark:text-gray-300 font-bold rounded-xl hover:border-primary hover:text-primary transition uppercase tracking-widest text-[11px] flex items-center justify-center">Case Study</a>
+                </div>
             </div>
 
-            <div class="project-card p-10 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-primary/30 rounded-3xl hover:shadow-2xl hover:shadow-primary/10 text-slate-900 dark:text-white text-center" data-category="web">
-                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">PingPong Game</h3>
-                <p class="text-sm text-gray-500 mb-10 font-mono">A ping pong game built with Pygame. You can download the zip file in this link</p>
-                <a href="https://jannnicolesanjose.itch.io/pingpong-game" target="_blank" class="block w-full text-center py-5 bg-primary text-white font-bold rounded-xl hover:brightness-110 transition shadow-lg shadow-primary/20 uppercase tracking-widest text-sm">Launch Live Site</a>
+            <div class="project-card p-10 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-primary/30 rounded-3xl hover:shadow-2xl hover:shadow-primary/10 text-slate-900 dark:text-white text-center flex flex-col justify-between h-full" data-category="web">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">PingPong Game</h3>
+                    <p class="text-sm text-gray-500 mb-10 font-mono">A ping pong game built with Pygame. You can download the zip file in this link</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-auto">
+                    <a href="https://jannnicolesanjose.itch.io/pingpong-game" target="_blank" class="py-4 bg-primary text-white font-bold rounded-xl hover:brightness-110 transition shadow-lg shadow-primary/20 uppercase tracking-widest text-[11px] flex items-center justify-center">Launch Site</a>
+                    <a href="projects/pingpong.html" class="py-4 border-2 border-gray-300 dark:border-gray-700 text-slate-700 dark:text-gray-300 font-bold rounded-xl hover:border-primary hover:text-primary transition uppercase tracking-widest text-[11px] flex items-center justify-center">Case Study</a>
+                </div>
             </div>
 
-
-            
-            <div class="project-card p-10 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-3xl group transition-all hover:border-primary text-slate-900 dark:text-white text-center" data-category="mobile">
-                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">MataMuseo</h3>
-                <p class="text-sm text-gray-500 mb-10 font-mono">Mobile CV companion for interactive museum visits.</p>
-                <button onclick="toggleVideoModal()" class="w-full py-5 border-2 border-primary text-primary group-hover:bg-primary group-hover:text-white transition font-bold rounded-xl shadow-md uppercase tracking-widest text-sm">Watch Presentation</button>
+            <div class="project-card p-10 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-3xl group transition-all text-slate-900 dark:text-white text-center flex flex-col justify-between h-full" data-category="mobile">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">MataMuseo</h3>
+                    <p class="text-sm text-gray-500 mb-10 font-mono">Mobile CV companion for interactive museum visits.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-auto">
+                    <button onclick="toggleVideoModal()" class="py-4 bg-primary text-white font-bold rounded-xl hover:brightness-110 transition shadow-lg shadow-primary/20 uppercase tracking-widest text-[11px] flex items-center justify-center">Watch Demo</button>
+                    <a href="projects/matamuseo.html" class="py-4 border-2 border-gray-300 dark:border-gray-700 text-slate-700 dark:text-gray-300 font-bold rounded-xl hover:border-primary hover:text-primary transition uppercase tracking-widest text-[11px] flex items-center justify-center">Case Study</a>
+                </div>
             </div>
 
-            <div class="project-card p-10 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-3xl group transition-all hover:border-primary text-slate-900 dark:text-white text-center" data-category="mobile">
-                <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">ChromaSnap</h3>
-                <p class="text-sm text-gray-500 mb-10 font-mono">Mobile app for color palette generation and image analysis.</p>
-                <a href="https://jannnicolesanjose.github.io/chromasnap/" target="_blank" class="block w-full text-center py-5 border-2 border-primary text-primary hover:bg-primary hover:text-white transition font-bold rounded-xl shadow-md uppercase tracking-widest text-sm">Launch Live Site</a>
+            <div class="project-card p-10 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-3xl group transition-all text-slate-900 dark:text-white text-center flex flex-col justify-between h-full" data-category="mobile">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">ChromaSnap</h3>
+                    <p class="text-sm text-gray-500 mb-10 font-mono">Mobile app for color palette generation and image analysis.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-auto">
+                    <a href="https://jannnicolesanjose.github.io/chromasnap/" target="_blank" class="py-4 bg-primary text-white font-bold rounded-xl hover:brightness-110 transition shadow-lg shadow-primary/20 uppercase tracking-widest text-[11px] flex items-center justify-center">Launch Site</a>
+                    <a href="projects/chromasnap.html" class="py-4 border-2 border-gray-300 dark:border-gray-700 text-slate-700 dark:text-gray-300 font-bold rounded-xl hover:border-primary hover:text-primary transition uppercase tracking-widest text-[11px] flex items-center justify-center">Case Study</a>
+                </div>
             </div>
         </div>
     </section>
@@ -253,106 +276,264 @@
             </p>
         </div>
         
-        <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="space-y-16">
+            <div>
+                <h3 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Programming Course Certificates
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div onclick="openCert('assets/images/cert20.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="file-badge" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Operating System Basics</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">CISCO • 2026</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
 
-            <div onclick="openCert('assets/images/cert9.png')" class="cursor-pointer flex items-center justify-between p-8 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
-                <div class="flex items-center gap-6">
-                    <div class="text-primary"><i data-lucide="award" class="w-10 h-10"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl uppercase">Back to Basics: Arduino</h4>
-                        <p class="text-sm text-gray-500 font-mono italic">DLSUD • 2025</p>
+                    <div onclick="openCert('assets/images/cert19.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="file-badge" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Networking Basics</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">CISCO • 2026</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+
+                    <div onclick="openCert('assets/images/cert18.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="file-badge" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Linux Essentials</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">CISCO • 2026</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+
+                    <div onclick="openCert('assets/images/cert17.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="file-badge" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Introduction to Modern AI</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">CISCO • 2026</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+
+                    <div onclick="openCert('assets/images/cert16.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="file-badge" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Endpoint Security</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">CISCO • 2026</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+
+                    <div onclick="openCert('assets/images/cert15.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="file-badge" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">DevNet Associate</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">CISCO • 2026</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+
+                    <div onclick="openCert('assets/images/cert14.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="file-badge" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Apply AI: Update Your Resume</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">CISCO • 2026</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+
+                    <div onclick="openCert('assets/images/cert13.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="file-badge" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Apply AI: Analyze Customer Reviews</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">CISCO • 2026</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+
+                    <div onclick="openCert('assets/images/cert1.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="file-badge" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Introduction to IoT</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">CISCO • 2022</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+                    
+                    <div onclick="openCert('assets/images/cert1.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="file-badge" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Introduction to IoT</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">CISCO • 2022</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+
+                    <div onclick="openCert('assets/images/cert2.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="file-badge" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Introduction to Cybersecurity</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">CISCO • 2022</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+
+                    <div onclick="openCert('assets/images/cert3.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="file-badge" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Cybersecurity Essentials</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">CISCO • 2021</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
                     </div>
                 </div>
-                <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
             </div>
 
-            <div onclick="openCert('assets/images/cert8.jpg')" class="cursor-pointer flex items-center justify-between p-8 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
-                <div class="flex items-center gap-6">
-                    <div class="text-primary"><i data-lucide="award" class="w-10 h-10"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl uppercase">GitHub Webinar</h4>
-                        <p class="text-sm text-gray-500 font-mono italic">DLSUD • 2024</p>
+            <div>
+                <h3 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Seminars & Webinars Certificates
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div onclick="openCert('assets/images/cert12.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="award" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Career Session: Marketing ME Live</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">DLSUD • 2026</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+
+                    <div onclick="openCert('assets/images/cert9.png')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="award" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Back to Basics: Arduino</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">DLSUD • 2025</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+
+                    <div onclick="openCert('assets/images/cert8.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="award" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">GitHub Webinar</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">DLSUD • 2024</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+
+                    <div onclick="openCert('assets/images/cert7.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="award" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Seminar for Intelligent System</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">DLSUD • 2023</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+
+                    <div onclick="openCert('assets/images/cert6.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="award" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Seminar for Web Development</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">DLSUD • 2023</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
                     </div>
                 </div>
-                <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
             </div>
 
-            <div onclick="openCert('assets/images/cert7.jpg')" class="cursor-pointer flex items-center justify-between p-8 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
-                <div class="flex items-center gap-6">
-                    <div class="text-primary"><i data-lucide="award" class="w-10 h-10"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl uppercase">Seminar for Intelligent System</h4>
-                        <p class="text-sm text-gray-500 font-mono italic">DLSUD • 2023</p>
+            <div>
+                <h3 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Scholarship Certificates
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div onclick="openCert('assets/images/cert4.png')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="graduation-cap" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Scholarship Event: The Spirit of Fire</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">DLSUD Scholarship • 2023</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
+                    </div>
+
+                    <div onclick="openCert('assets/images/cert5.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="graduation-cap" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Scholarship Event: PALEA</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">Scholarship • 2025</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
                     </div>
                 </div>
-                <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
             </div>
 
-            <div onclick="openCert('assets/images/cert6.jpg')" class="cursor-pointer flex items-center justify-between p-8 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
-                <div class="flex items-center gap-6">
-                    <div class="text-primary"><i data-lucide="award" class="w-10 h-10"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl uppercase">Seminar for Web Development</h4>
-                        <p class="text-sm text-gray-500 font-mono italic">DLSUD • 2023</p>
+            <div>
+                <h3 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // On-the-Job Training Certificates
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div onclick="openCert('assets/images/cert10.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="file-badge" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Certificate of Completion</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">Internship • 2026</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
                     </div>
-                </div>
-                <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
-            </div>
 
-
-            <div onclick="openCert('assets/images/cert1.jpg')" class="cursor-pointer flex items-center justify-between p-8 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
-                <div class="flex items-center gap-6">
-                    <div class="text-primary"><i data-lucide="award" class="w-10 h-10"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl uppercase">Introduction to IoT</h4>
-                        <p class="text-sm text-gray-500 font-mono italic">DLSUD • 2022</p>
+                    <div onclick="openCert('assets/images/cert11.jpg')" class="cursor-pointer flex items-center justify-between p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
+                        <div class="flex items-center gap-6">
+                            <div class="text-primary"><i data-lucide="file-badge" class="w-10 h-10"></i></div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">Certificate of Recognition</h4>
+                                <p class="text-xs text-gray-500 font-mono italic">Internship • 2026</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
                     </div>
                 </div>
-                <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
-            </div>
-
-            <div onclick="openCert('assets/images/cert2.jpg')" class="cursor-pointer flex items-center justify-between p-8 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
-                <div class="flex items-center gap-6">
-                    <div class="text-primary"><i data-lucide="award" class="w-10 h-10"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl uppercase">Introduction to Cybersecurity</h4>
-                        <p class="text-sm text-gray-500 font-mono italic">DLSUD • 2022</p>
-                    </div>
-                </div>
-                <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
-            </div>
-
-            <div onclick="openCert('assets/images/cert3.jpg')" class="cursor-pointer flex items-center justify-between p-8 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
-                <div class="flex items-center gap-6">
-                    <div class="text-primary"><i data-lucide="award" class="w-10 h-10"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl uppercase">Cybersecurity Essentials</h4>
-                        <p class="text-sm text-gray-500 font-mono italic">DLSUD • 2021</p>
-                    </div>
-                </div>
-                <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
-            </div>
-            
-            <div onclick="openCert('assets/images/cert4.jpg')" class="cursor-pointer flex items-center justify-between p-8 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
-                <div class="flex items-center gap-6">
-                    <div class="text-primary"><i data-lucide="graduation-cap" class="w-10 h-10"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl uppercase">Scholarship Event: The Spirit of Fire</h4>
-                        <p class="text-sm text-gray-500 font-mono italic">Scholarship • 2023</p>
-                    </div>
-                </div>
-                <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
-            </div>
-
-            <div onclick="openCert('assets/images/cert5.jpg')" class="cursor-pointer flex items-center justify-between p-8 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 group hover:border-primary transition shadow-md rounded-2xl text-slate-900 dark:text-white">
-                <div class="flex items-center gap-6">
-                    <div class="text-primary"><i data-lucide="graduation-cap" class="w-10 h-10"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl uppercase">Scholarship Event: PALEA</h4>
-                        <p class="text-sm text-gray-500 font-mono italic">Scholarship • 2025</p>
-                    </div>
-                </div>
-                <span class="text-xs font-mono uppercase text-primary opacity-0 group-hover:opacity-100 transition tracking-widest font-black">View</span>
             </div>
         </div>
     </section>
@@ -363,11 +544,11 @@
                 <h2 class="text-5xl font-black mb-8 uppercase tracking-tighter italic text-slate-900 dark:text-white">Connect<span class="text-primary">.</span></h2>
                 <div class="flex justify-center gap-16">
                     <a href="https://github.com/jannnicolesanjose" target="_blank" class="group flex flex-col items-center gap-4 text-gray-500 hover:text-primary transition-all">
-                        <i data-lucide="github" class="w-10 h-10 text-slate-700 dark:text-gray-300 group-hover:text-primary transition-colors"></i>
+                        <img src="https://api.iconify.design/lucide:github.svg?color=%2394a3b8" class="w-10 h-10 dark:opacity-80 group-hover:scale-110 transition-transform filter dark:invert-0" alt="GitHub">
                         <span class="text-[10px] font-mono uppercase tracking-[0.3em]">GitHub</span>
                     </a>
                     <a href="https://www.linkedin.com/in/jann-nicole-san-jose/" target="_blank" class="group flex flex-col items-center gap-4 text-gray-500 hover:text-primary transition-all">
-                        <i data-lucide="linkedin" class="w-10 h-10 text-slate-700 dark:text-gray-300 group-hover:text-primary transition-colors"></i>
+                        <img src="https://api.iconify.design/lucide:linkedin.svg?color=%2394a3b8" class="w-10 h-10 dark:opacity-80 group-hover:scale-110 transition-transform" alt="LinkedIn">
                         <span class="text-[10px] font-mono uppercase tracking-[0.3em]">LinkedIn</span>
                     </a>
                 </div>
@@ -419,107 +600,40 @@
     </div>
 
     <script>
-        lucide.createIcons();
-
-        // Theme Toggle Logic
-        const toggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const html = document.documentElement;
-        toggleBtn.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            themeIcon.innerText = html.classList.contains('dark') ? '🌙' : '☀️';
-        });
-
-        // Project Filter Logic
-        function filterProjects(category) {
-            const cards = document.querySelectorAll('.project-card');
-            const btns = document.querySelectorAll('.filter-btn');
-            
-            btns.forEach(btn => {
-                btn.classList.remove('bg-primary', 'text-white', 'border-primary');
-                btn.classList.add('border-gray-300', 'dark:border-gray-700', 'text-slate-600', 'dark:text-gray-400');
-            });
-            event.target.classList.add('bg-primary', 'text-white', 'border-primary');
-
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.classList.remove('hidden-item');
-                } else {
-                    card.classList.add('hidden-item');
-                }
-            });
-        }
-
-        // Web3Forms AJAX Handling with Manual Redirect
-        const form = document.getElementById('contact-form');
-        const result = document.getElementById('form-result');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-            result.innerHTML = "Processing...";
-
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                let res = await response.json();
-                if (response.status == 200) {
-                    result.classList.add('text-green-500');
-                    result.innerHTML = "Redirecting...";
-                    setTimeout(() => {
-                        window.location.href = form.redirect.value;
-                    }, 1000);
-                } else {
-                    result.classList.add('text-primary');
-                    result.innerHTML = res.message;
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                result.innerHTML = "Something went wrong!";
-            })
-            .then(function() {
-                form.reset();
-            });
-        });
-
-        // Modal and UI Controls
-        function toggleVideoModal() {
-            const modal = document.getElementById('videoModal');
-            modal.classList.toggle('active');
-            const iframe = document.getElementById('projectVideo');
-            if (!modal.classList.contains('active')) {
-                const src = iframe.src; iframe.src = src;
+        function triggerNotificationToast(textMessage) {
+            const toastEl = document.getElementById('system-toast');
+            const messageEl = document.getElementById('toast-message');
+            if(toastEl && messageEl) {
+                messageEl.innerText = textMessage;
+                toastEl.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                toastEl.classList.add('opacity-100', 'scale-100');
+                
+                setTimeout(() => {
+                    toastEl.classList.remove('opacity-100', 'scale-100');
+                    toastEl.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                }, 3000);
             }
         }
 
-        function openCert(src) {
-            const modal = document.getElementById('certModal');
-            document.getElementById('certImage').src = src;
-            modal.classList.add('active');
-        }
-
-        function closeCert() {
-            document.getElementById('certModal').classList.remove('active');
-        }
-
-        function copyEmail() {
+        // Wrap existing callbacks securely to fire custom overlay message confirmations
+        const primaryCopyEmailHandler = window.copyEmail;
+        window.copyEmail = function() {
             const emailText = "jannnicole.c.sanjose@gmail.com";
-            navigator.clipboard.writeText(emailText);
-            alert("Contact copied to clipboard!");
-        }
+            navigator.clipboard.writeText(emailText).then(() => {
+                triggerNotificationToast("Email copied successfully!");
+            });
+        };
 
-        window.addEventListener('contextmenu', function (e) {
-            if (e.target.classList.contains('no-save')) { e.preventDefault(); }
-        }, false);
+        // Attach submission banner directly onto DOM handler context loops
+        document.addEventListener("DOMContentLoaded", function() {
+            const formNode = document.getElementById('contact-form');
+            if (formNode) {
+                formNode.addEventListener('submit', function() {
+                    triggerNotificationToast("Message processing complete!");
+                });
+            }
+        });
     </script>
+    <script src="script.js"></script>
 </body>
 </html>

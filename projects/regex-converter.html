@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study | Regular Expression Converter</title>
+    
+    <link class="no-save" rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E50914', 
+                        darkBg: '#0a0a0a',
+                        lightBg: '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-lightBg dark:bg-darkBg text-slate-900 dark:text-gray-100 transition-colors duration-500 font-sans min-h-screen py-24 px-6 md:px-12">
+
+    <div id="top-anchor"></div>
+
+    <div class="max-w-4xl mx-auto">
+        
+        <a href="../index.html#projects" class="inline-flex items-center gap-3 text-sm font-mono uppercase text-gray-500 hover:text-primary transition-colors mb-12 group">
+            <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> Back to Portfolio
+        </a>
+
+        <header class="border-b border-gray-200 dark:border-gray-800 pb-10 mb-12">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-4">
+                <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">
+                    Regex Converter<span class="text-primary">.</span>
+                </h1>
+                <div class="flex items-center gap-4 font-mono text-xs uppercase tracking-widest">
+                    <a href="https://github.com/jannnicolesanjose/RegExConverter.git" target="_blank" class="flex items-center gap-2 border-2 border-gray-300 dark:border-gray-800 px-4 py-3 rounded-xl hover:border-primary hover:text-primary transition group">
+                        <img src="https://api.iconify.design/lucide:github.svg?color=%2394a3b8" class="w-4 h-4 dark:opacity-80 group-hover:scale-110 transition-transform" alt="GitHub"> Repository
+                    </a>
+                    <a href="https://regexconverter.onrender.com/" target="_blank" class="flex items-center gap-2 bg-primary text-white px-4 py-3 rounded-xl hover:brightness-110 transition shadow-lg shadow-primary/20">
+                        <i data-lucide="external-link" class="w-4 h-4"></i> Launch Site
+                    </a>
+                </div>
+            </div>
+            <p class="text-gray-500 font-mono italic text-lg max-w-3xl">
+                An interactive abstraction matrix converting predefined regular expressions into Deterministic Finite Automata (DFA), Context-Free Grammars (CFG), and Pushdown Automata (PDA) visualization engines.
+            </p>
+        </header>
+
+        <div class="space-y-10">
+            
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h2 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Project Overview
+                </h2>
+                <div class="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed text-base italic">
+                    <p>
+                        Automata theory explores how formal languages are systematically recognized and modeled by abstract computational structures. This project, titled Regular Expression Converter, was engineered specifically to bridge the gap between abstract mathematical rules and interactive visual representations. Developed as a foundational computational aid for Automata Theory and Formal Languages, the application focuses on processing predefined complex regular expressions to generate and simulate structural representations on the fly.
+                    </p>
+                    <p>
+                        Rather than performing abstract, unconstrained regular expression processing, the environment targets precise, mathematically structured string patterns. Users can input text strings generated from explicit alphabet configurations—such as binary sets {0,1} or classic variables {a,b}—to evaluate their validity, step through state machines step by step, and inspect generative rules synchronously.
+                    </p>
+                </div>
+            </section>
+
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h2 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // The Problem & Motivation
+                </h2>
+                <div class="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed text-base">
+                    <p>
+                        For many students and computational researchers, translating symbolic definitions (like Kleene stars, alternation symbols, and nested substitution parameters) into structural models remains a significant cognitive bottleneck. Traditional text-based formats lack spatial feedback, leaving individuals unable to trace token consumption paths, track stack behavior over long input arrays, or understand why a string fails context conditions.
+                    </p>
+                    <p>
+                        This workspace addresses this visibility gap by transforming conceptual components into interactive visualization interfaces. It serves as a visual framework where state machines are clearly laid out, execution errors trigger diagnostic state changes instantly, and structural generation is demystified.
+                    </p>
+                </div>
+            </section>
+
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h2 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Technical Stack Deep Dive
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6 font-mono text-xs uppercase">
+                    <div class="p-5 bg-white dark:bg-black rounded-2xl border border-gray-200 dark:border-gray-800">
+                        <h3 class="font-bold text-primary mb-2">// Python Core Runtime</h3>
+                        <p class="text-gray-500 dark:text-gray-400 leading-relaxed tracking-normal normal-case italic">
+                            Python acts as our structural engine because its memory model allows us to handle state transitions, formal grammar rule variables, and tree structures easily without system layout bloat.
+                        </p>
+                    </div>
+                    <div class="p-5 bg-white dark:bg-black rounded-2xl border border-gray-200 dark:border-gray-800">
+                        <h3 class="font-bold text-primary mb-2">// JavaScript Visualization</h3>
+                        <p class="text-gray-500 dark:text-gray-400 leading-relaxed tracking-normal normal-case italic">
+                            Web views are built entirely using JavaScript along with an open-source topology framework to deliver real-time interactive vector generation.
+                        </p>
+                    </div>
+                    <div class="p-5 bg-white dark:bg-black rounded-2xl border border-gray-200 dark:border-gray-800">
+                        <h3 class="font-bold text-primary mb-2">// Cytoscape Canvas</h3>
+                        <p class="text-gray-500 dark:text-gray-400 leading-relaxed tracking-normal normal-case italic">
+                            Cytoscape.js drives our graph layout engine. It renders transition vectors and loops cleanly, while applying high-contrast focus styles during string tracking simulations.
+                        </p>
+                    </div>
+                    <div class="p-5 bg-white dark:bg-black rounded-2xl border border-gray-200 dark:border-gray-800">
+                        <h3 class="font-bold text-primary mb-2">// Render Cloud Platform</h3>
+                        <p class="text-gray-500 dark:text-gray-400 leading-relaxed tracking-normal normal-case italic">
+                            Hosting uses modern deployment architecture, packaging algorithmic execution pipelines securely to guarantee low-latency validation runs worldwide.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h2 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Implementation Code Snippets
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between text-xs font-mono px-4 py-2 bg-gray-200 dark:bg-gray-800 rounded-t-xl border border-b-0 border-gray-300 dark:border-gray-700">
+                        <span>dfa_simulator_core.js</span>
+                        <span class="text-primary uppercase tracking-widest text-[10px]">Deterministic Evaluation Loop</span>
+                    </div>
+                    <pre class="p-6 bg-gray-950 text-emerald-400 font-mono text-xs overflow-x-auto rounded-b-xl border border-gray-300 dark:border-gray-700 shadow-inner"><code>// Structural transition sequence processor matching predefined regular expression strings
+function simulateDFAState(inputString, stateMatrixMap) {
+    let currentState = "q0"; // Initial State flag initialization
+    
+    for (let i = 0; i < inputString.length; i++) {
+        const activeToken = inputString[i];
+        
+        // Unambiguous token processing step routing logic
+        if (stateMatrixMap[currentState] && stateMatrixMap[currentState][activeToken]) {
+            currentState = stateMatrixMap[currentState][activeToken];
+        } else {
+            currentState = "TrapState_T"; // Fail path lock status trigger
+            break;
+        }
+    }
+    return currentState;
+}</code></pre>
+                    <p class="text-xs font-mono text-gray-500 italic mt-2">
+                        * Technical logic tracking graph evaluation routes sequentially to ensure unambiguous determinism.
+                    </p>
+                </div>
+            </section>
+
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h2 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Interactive Features
+                </h2>
+                <ul class="space-y-6 font-mono text-xs uppercase text-slate-800 dark:text-gray-300">
+                    <li class="flex items-start gap-4">
+                        <span class="p-2 bg-primary/10 rounded-lg text-primary mt-1"><i data-lucide="play" class="w-4 h-4"></i></span>
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white">// Step-by-Step Simulation Engine</h4>
+                            <p class="normal-case text-sm text-gray-500 tracking-normal pt-1 font-sans italic">Animates transition steps one character at a time, flashing nodes with a blue glow as strings pass through state paths.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="p-2 bg-primary/10 rounded-lg text-primary mt-1"><i data-lucide="layers" class="w-4 h-4"></i></span>
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white">// Context-Free Grammar Compiler</h4>
+                            <p class="normal-case text-sm text-gray-500 tracking-normal pt-1 font-sans italic">Breaks down patterns into structured sets of recursive production rules automatically.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="p-2 bg-primary/10 rounded-lg text-primary mt-1"><i data-lucide="database" class="w-4 h-4"></i></span>
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white">// Pushdown Automata Visualizer</h4>
+                            <p class="normal-case text-sm text-gray-500 tracking-normal pt-1 font-sans italic">Maps stack state variables against entry sequences to process complex context-free language arrays.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h2 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Challenges & Technical Bottlenecks
+                </h2>
+                <div class="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed text-base">
+                    <p>
+                        A key structural hurdle was building clean loops inside Cytoscape to map recursive regex blocks perfectly. If an invalid token lands on a terminal path, the network layout needs to safely reroute execution straight to an absolute trap state node. We resolved this by implementing explicit condition catch groups that cleanly interrupt path execution paths at runtime.
+                    </p>
+                    <p>
+                        Synchronizing memory states between a dynamic execution loop and canvas state nodes also required careful timing control. We solved this by using timed frame delays to align visual state updates directly with active computational operations.
+                    </p>
+                </div>
+            </section>
+
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h2 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Educational Impact
+                </h2>
+                <div class="text-gray-600 dark:text-gray-400 leading-relaxed text-base italic">
+                    <p>
+                        By integrating interactive graph layouts directly with compilation logic, the project has turned dry symbolic grammar theory into a highly visual, accessible framework. It serves as a clear proof-of-concept for modern, interactive educational tools, highlighting how design-driven systems can make abstract computer science topics intuitive and engaging.
+                    </p>
+                </div>
+            </section>
+
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h3 class="font-mono font-bold text-xs uppercase tracking-widest text-primary mb-6 flex items-center gap-2">
+                    <i data-lucide="cpu" class="w-4 h-4"></i> Technology Inventory
+                </h3>
+                
+                <div class="grid md:grid-cols-3 gap-6 font-mono text-xs">
+                    <div>
+                        <span class="text-gray-400 block uppercase tracking-wider mb-2">// Frontend Shell</span>
+                        <ul class="space-y-2 text-slate-900 dark:text-white font-bold uppercase text-[11px]">
+                            <li>• HTML5 Hypertext Framework</li>
+                            <li>• CSS3 Layout Custom Variables</li>
+                            <li>• JavaScript (Vanilla DOM Runtime)</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-t md:border-t-0 md:border-l border-gray-200 dark:border-gray-800 pt-4 md:pt-0 md:pl-6">
+                        <span class="text-gray-400 block uppercase tracking-wider mb-2">// Graph Layer</span>
+                        <ul class="space-y-2 text-slate-900 dark:text-white font-bold uppercase text-[11px]">
+                            <li>• Cytoscape.js Topography Engine</li>
+                            <li>• Lucide Vector Asset Pack</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-t md:border-t-0 md:border-l border-gray-200 dark:border-gray-800 pt-4 md:pt-0 md:pl-6">
+                        <span class="text-gray-400 block uppercase tracking-wider mb-2">// Backend Systems</span>
+                        <ul class="space-y-2 text-slate-900 dark:text-white font-bold uppercase text-[11px]">
+                            <li>• Python Formal Grammar Libraries</li>
+                            <li>• Render Server Host Platform</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                <a href="#top-anchor" class="flex items-center justify-center gap-3 border-2 border-gray-300 dark:border-gray-800 text-slate-700 dark:text-gray-300 px-6 py-5 rounded-2xl font-mono text-xs uppercase font-bold hover:border-primary hover:text-primary transition shadow-md">
+                    <i data-lucide="arrow-up" class="w-4 h-4"></i> View Case Study (Top)
+                </a>
+                <a href="../index.html#projects" class="flex items-center justify-center gap-3 bg-primary text-white px-6 py-5 rounded-2xl font-mono text-xs uppercase font-bold hover:brightness-110 transition shadow-lg shadow-primary/20">
+                    <i data-lucide="layout" class="w-4 h-4"></i> Explore Other Projects
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Safely map layout vectors on document load states
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>

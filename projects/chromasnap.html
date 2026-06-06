@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study | ChromaSnap</title>
+    
+    <link class="no-save" rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
+    <link rel="stylesheet" href="../style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E50914', 
+                        darkBg: '#0a0a0a',
+                        lightBg: '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-lightBg dark:bg-darkBg text-slate-900 dark:text-gray-100 transition-colors duration-500 font-sans min-h-screen py-24 px-6 md:px-12">
+
+    <div id="top-anchor"></div>
+
+    <div class="max-w-4xl mx-auto">
+        
+        <a href="../index.html#projects" class="inline-flex items-center gap-3 text-sm font-mono uppercase text-gray-500 hover:text-primary transition-colors mb-12 group">
+            <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> Back to Portfolio
+        </a>
+
+        <header class="border-b border-gray-200 dark:border-gray-800 pb-10 mb-12">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-4">
+                <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">
+                    ChromaSnap<span class="text-primary">.</span>
+                </h1>
+                <div class="flex items-center gap-4 font-mono text-xs uppercase tracking-widest">
+                    <a href="https://github.com/jannnicolesanjose/chromasnap" target="_blank" class="flex items-center gap-2 border-2 border-gray-300 dark:border-gray-800 px-4 py-3 rounded-xl hover:border-primary hover:text-primary transition group">
+                        <img src="https://api.iconify.design/lucide:github.svg?color=%2394a3b8" class="w-4 h-4 dark:opacity-80 group-hover:scale-110 transition-transform" alt="GitHub"> Repository
+                    </a>
+                    <a href="https://jannnicolesanjose.github.io/chromasnap/" target="_blank" class="flex items-center gap-2 bg-primary text-white px-4 py-3 rounded-xl hover:brightness-110 transition shadow-lg shadow-primary/20">
+                        <i data-lucide="external-link" class="w-4 h-4"></i> Launch Site
+                    </a>
+                </div>
+            </div>
+            <p class="text-gray-500 font-mono italic text-lg max-w-3xl">
+                A mobile color palette generator and spatial image analyzer built to extract harmonic hex spaces from real-world environments.
+            </p>
+        </header>
+
+        <div class="space-y-10">
+            
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h2 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Project Overview
+                </h2>
+                <div class="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed text-base italic">
+                    <p>
+                        ChromaSnap is an intuitive web-optimized mobile companion application designed to turn immediate physical surroundings into accurate digital color design systems. By capturing or uploading images, designers and front-end developers can sample local regions to automatically extract matching, hex-encoded design configurations.
+                    </p>
+                </div>
+            </section>
+
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h2 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // The Problem & Motivation
+                </h2>
+                <div class="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed text-base">
+                    <p>
+                        Finding inspiration in the real world is easy, but capturing it accurately is hard. Lighting changes, loss of color fidelity when shifting between devices, and manual sampling parameters usually distort color profiles before they reach production code. ChromaSnap isolates custom image data arrays instantly to let creatives lock down clean palettes, extract accurate color maps, and test harmonies within seconds.
+                    </p>
+                </div>
+            </section>
+
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h2 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Technical Stack Deep Dive
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6 font-mono text-xs uppercase">
+                    <div class="p-5 bg-white dark:bg-black rounded-2xl border border-gray-200 dark:border-gray-800">
+                        <h3 class="font-bold text-primary mb-2">// Flutter Mobile Architecture</h3>
+                        <p class="text-gray-500 dark:text-gray-400 leading-relaxed tracking-normal normal-case italic">
+                            Leverages multi-platform performance capabilities to run rendering computations and image layer tasks natively at high frame rates.
+                        </p>
+                    </div>
+                    <div class="p-5 bg-white dark:bg-black rounded-2xl border border-gray-200 dark:border-gray-800">
+                        <h3 class="font-bold text-primary mb-2">// Canvas Image Pipelines</h3>
+                        <p class="text-gray-500 dark:text-gray-400 leading-relaxed tracking-normal normal-case italic">
+                            Utilizes raw image element processing to access individual pixel coordinates directly when a user interacts with the UI.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h2 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Implementation Snippets
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between text-xs font-mono px-4 py-2 bg-gray-200 dark:bg-gray-800 rounded-t-xl border border-b-0 border-gray-300 dark:border-gray-700">
+                        <span>palette_extractor.dart</span>
+                        <span class="text-primary uppercase tracking-widest text-[10px]">Pixel Sampling Logic</span>
+                    </div>
+                    <pre class="p-6 bg-gray-950 text-emerald-400 font-mono text-xs overflow-x-auto rounded-b-xl border border-gray-300 dark:border-gray-700 shadow-inner"><code>// Sample coordinate data mapping array properties
+void extractColorCoordinate(double positionX, double positionY) {
+  final Map<String, int> activePixel = getImagePixelData(positionX, positionY);
+  
+  // Transform color values into valid Hexadecimal strings
+  String hexCode = transformToHex(activePixel['r'], activePixel['g'], activePixel['b']);
+  updateActivePaletteLayer(hexCode);
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h2 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Interactive Features
+                </h2>
+                <ul class="space-y-6 font-mono text-xs uppercase text-slate-800 dark:text-gray-300">
+                    <li class="flex items-start gap-4">
+                        <span class="p-2 bg-primary/10 rounded-lg text-primary mt-1"><i data-lucide="camera" class="w-4 h-4"></i></span>
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white">// Real-Time Image Upload Sampling</h4>
+                            <p class="normal-case text-sm text-gray-500 tracking-normal pt-1 font-sans italic">Allows seamless image loading to isolate raw pixel information right away.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="p-2 bg-primary/10 rounded-lg text-primary mt-1"><i data-lucide="copy" class="w-4 h-4"></i></span>
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white">// Single-Tap Hex Code Clipboard Saving</h4>
+                            <p class="normal-case text-sm text-gray-500 tracking-normal pt-1 font-sans italic">Copies accurate design tokens straight to your clipboard with a single tap for clean styling workflows.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h2 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Challenges & Technical Bottlenecks
+                </h2>
+                <div class="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed text-base">
+                    <p>
+                        Scaling varying layout image sizes down onto responsive container coordinates without throwing off individual pixel sampling math was a primary bottleneck. This was solved by mapping touch inputs to a normalized grid, ensuring precise color sampling regardless of screen aspect ratios.
+                    </p>
+                </div>
+            </section>
+
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h2 class="text-lg font-bold text-primary uppercase tracking-widest font-mono mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span> // Educational Impact
+                </h2>
+                <div class="text-gray-600 dark:text-gray-400 leading-relaxed text-base italic">
+                    <p>
+                        The application provides a useful tool for frontend engineers by turning abstract color picking into an effortless mobile experience, helping bridge the gap between creative visual selection and live styling files.
+                    </p>
+                </div>
+            </section>
+
+            <section class="p-8 bg-gray-50/50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md">
+                <h3 class="font-mono font-bold text-xs uppercase tracking-widest text-primary mb-6 flex items-center gap-2">
+                    <i data-lucide="cpu" class="w-4 h-4"></i> Technology Inventory
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6 font-mono text-xs">
+                    <div>
+                        <span class="text-gray-400 block uppercase tracking-wider mb-2">// Mobile Systems</span>
+                        <ul class="space-y-2 text-slate-900 dark:text-white font-bold uppercase text-[11px]">
+                            <li>• Flutter SDK Engine</li>
+                            <li>• Dart Application Logic</li>
+                        </ul>
+                    </div>
+                    <div class="border-t md:border-t-0 md:border-l border-gray-200 dark:border-gray-800 pt-4 md:pt-0 md:pl-6">
+                        <span class="text-gray-400 block uppercase tracking-wider mb-2">// Extraction Engines</span>
+                        <ul class="space-y-2 text-slate-900 dark:text-white font-bold uppercase text-[11px]">
+                            <li>• Image Layer Pixel Buffers</li>
+                            <li>• Local Clipboard Hardware Utilities</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                <a href="#top-anchor" class="flex items-center justify-center gap-3 border-2 border-gray-300 dark:border-gray-800 text-slate-700 dark:text-gray-300 px-6 py-5 rounded-2xl font-mono text-xs uppercase font-bold hover:border-primary hover:text-primary transition shadow-md">
+                    <i data-lucide="arrow-up" class="w-4 h-4"></i> View Case Study (Top)
+                </a>
+                <a href="../index.html#projects" class="flex items-center justify-center gap-3 bg-primary text-white px-6 py-5 rounded-2xl font-mono text-xs uppercase font-bold hover:brightness-110 transition shadow-lg shadow-primary/20">
+                    <i data-lucide="layout" class="w-4 h-4"></i> Explore Other Projects
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+        });
+    </script>
+</body>
+</html>

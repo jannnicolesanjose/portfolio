@@ -66,10 +66,11 @@
                 </h2>
                 <div class="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed text-base italic">
                     <p>
-                        MataMuseo is a context-rich mobile application engineered specifically as an automated tour aid for the Museo De La Salle[cite: 4]. The application uses a custom-compressed Vision Transformer algorithm running directly on mobile hardware to scan, identify, and classify historical museum artifacts on site without requiring an internet connection[cite: 4, 4].
+                        MataMuseo is a context-rich mobile application engineered specifically as an automated tour aid for the Museo De La Salle.
+                        The application uses a custom-compressed Vision Transformer algorithm running directly on mobile hardware to scan, identify, and classify historical museum artifacts on site without requiring an internet connection.
                     </p>
                     <p>
-                        Once an object is scanned via the camera view, the tool displays an informative digital profile containing details such as name, historical background, materials, and dimension metadata[cite: 4, 4]. Simultaneously, a built-in recommendation engine uses feature embeddings to calculate and suggest contextually related relics, offering users an intuitive, self-paced learning experience[cite: 4, 4].
+                        Once an object is scanned via the camera view, the tool displays an informative digital profile containing details such as name, historical background, materials, and dimension metadata. Simultaneously, a built-in recommendation engine uses feature embeddings to calculate and suggest contextually related relics, offering users an intuitive, self-paced learning experience.
                     </p>
                 </div>
             </section>
@@ -81,10 +82,10 @@
                 </h2>
                 <div class="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed text-base">
                     <p>
-                        As a lifestyle museum, Museo De La Salle meticulously recreates immersive historical environments, such as late 19th-century Ilustrado homes[cite: 4, 4]. To maintain this authentic historical setting, individual exhibits lack traditional text labels or descriptive display cards[cite: 4, 4]. Consequently, visitors must rely entirely on verbal explanations during group tours[cite: 4].
+                        As a lifestyle museum, Museo De La Salle meticulously recreates immersive historical environments, such as late 19th-century Ilustrado homes. To maintain this authentic historical setting, individual exhibits lack traditional text labels or descriptive display cards. Consequently, visitors must rely entirely on verbal explanations during group tours.
                     </p>
                     <p>
-                        This approach can lead to information gaps if tour sizes are large or if visitors wish to explore at their own speed[cite: 4, 4]. MataMuseo provides a non-intrusive solution to this problem, delivering descriptive textual summaries directly to the visitor's palm without disrupting the museum's design or atmosphere[cite: 4, 4].
+                        This approach can lead to information gaps if tour sizes are large or if visitors wish to explore at their own speed. MataMuseo provides a non-intrusive solution to this problem, delivering descriptive textual summaries directly to the visitor's palm without disrupting the museum's design or atmosphere.
                     </p>
                 </div>
             </section>
@@ -98,25 +99,25 @@
                     <div class="p-5 bg-white dark:bg-black rounded-2xl border border-gray-200 dark:border-gray-800">
                         <h3 class="font-bold text-primary mb-2">// MobileViT-XXS Model</h3>
                         <p class="text-gray-500 dark:text-gray-400 leading-relaxed tracking-normal normal-case italic">
-                            A lightweight Vision Transformer architecture trained via Knowledge Distillation from a heavy BEiT teacher model, optimized to fit within a compact 4 MB footprint[cite: 4, 4].
+                            A lightweight Vision Transformer architecture trained via Knowledge Distillation from a heavy BEiT teacher model, optimized to fit within a compact 4 MB footprint.
                         </p>
                     </div>
                     <div class="p-5 bg-white dark:bg-black rounded-2xl border border-gray-200 dark:border-gray-800">
                         <h3 class="font-bold text-primary mb-2">// Content-Based Filtering</h3>
                         <p class="text-gray-500 dark:text-gray-400 leading-relaxed tracking-normal normal-case italic">
-                            Computes item similarities by blending metadata binaries (material, room location) with Sentence Transformer description matrix vectors[cite: 4, 4].
+                            Computes item similarities by blending metadata binaries (material, room location) with Sentence Transformer description matrix vectors.
                         </p>
                     </div>
                     <div class="p-5 bg-white dark:bg-black rounded-2xl border border-gray-200 dark:border-gray-800">
                         <h3 class="font-bold text-primary mb-2">// Flutter Framework (Dart)</h3>
                         <p class="text-gray-500 dark:text-gray-400 leading-relaxed tracking-normal normal-case italic">
-                            Powers the native multi-platform client shell, linking camera permissions and UI navigation views directly to hardware processes[cite: 4, 4].
+                            Powers the native multi-platform client shell, linking camera permissions and UI navigation views directly to hardware processes.
                         </p>
                     </div>
                     <div class="p-5 bg-white dark:bg-black rounded-2xl border border-gray-200 dark:border-gray-800">
                         <h3 class="font-bold text-primary mb-2">// TensorFlow Lite Engine</h3>
                         <p class="text-gray-500 dark:text-gray-400 leading-relaxed tracking-normal normal-case italic">
-                            Executes integer-quantized neural model passes directly on the device, allowing real-time object tracking entirely offline[cite: 4, 4].
+                            Executes integer-quantized neural model passes directly on the device, allowing real-time object tracking entirely offline.
                         </p>
                     </div>
                 </div>
@@ -145,7 +146,7 @@ def calculate_composite_similarity(meta_vector_a, meta_vector_b, text_embed_a, t
     final_similarity_score = (w_meta * cos_meta) + (w_text * cos_text)
     return final_similarity_score</code></pre>
                     <p class="text-xs font-mono text-gray-500 italic mt-2">
-                        * Combines structured catalog tags with text descriptors to rank the most relevant recommendations[cite: 4].
+                        * Combines structured catalog tags with text descriptors to rank the most relevant recommendations.
                     </p>
                 </div>
             </section>
@@ -160,21 +161,21 @@ def calculate_composite_similarity(meta_vector_a, meta_vector_b, text_embed_a, t
                         <span class="p-2 bg-primary/10 rounded-lg text-primary mt-1"><i data-lucide="scan" class="w-4 h-4"></i></span>
                         <div>
                             <h4 class="font-bold text-slate-900 dark:text-white">// Transformer Vision Scan (Detect Mode)</h4>
-                            <p class="normal-case text-sm text-gray-500 tracking-normal pt-1 font-sans italic">Uses self-attention image patching to identify fine-grained artifacts and structural exhibits instantly[cite: 4, 4].</p>
+                            <p class="normal-case text-sm text-gray-500 tracking-normal pt-1 font-sans italic">Uses self-attention image patching to identify fine-grained artifacts and structural exhibits instantly.</p>
                         </div>
                     </li>
                     <li class="flex items-start gap-4">
                         <span class="p-2 bg-primary/10 rounded-lg text-primary mt-1"><i data-lucide="map" class="w-4 h-4"></i></span>
                         <div>
                             <h4 class="font-bold text-slate-900 dark:text-white">// Interactive Multi-Floor Map Matrix</h4>
-                            <p class="normal-case text-sm text-gray-500 tracking-normal pt-1 font-sans italic">Features responsive canvas pins linking straight to standalone item popups and catalog indices across floors[cite: 4].</p>
+                            <p class="normal-case text-sm text-gray-500 tracking-normal pt-1 font-sans italic">Features responsive canvas pins linking straight to standalone item popups and catalog indices across floors.</p>
                         </div>
                     </li>
                     <li class="flex items-start gap-4">
                         <span class="p-2 bg-primary/10 rounded-lg text-primary mt-1"><i data-lucide="sliders" class="w-4 h-4"></i></span>
                         <div>
                             <h4 class="font-bold text-slate-900 dark:text-white">// Admin Curation Dashboard</h4>
-                            <p class="normal-case text-sm text-gray-500 tracking-normal pt-1 font-sans italic">Enables authorized museum staff to manage inventories, upload artifact variants, and monitor operation system logs[cite: 4, 4].</p>
+                            <p class="normal-case text-sm text-gray-500 tracking-normal pt-1 font-sans italic">Enables authorized museum staff to manage inventories, upload artifact variants, and monitor operation system logs.</p>
                         </div>
                     </li>
                 </ul>
@@ -187,10 +188,10 @@ def calculate_composite_similarity(meta_vector_a, meta_vector_b, text_embed_a, t
                 </h2>
                 <div class="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed text-base">
                     <p>
-                        Deploying dense transformer layers onto mobile chips requires keeping model files highly compressed while minimizing inter-class confusion among visually similar artifacts (such as matching antique beds or porcelain vases)[cite: 4, 4]. 
+                        Deploying dense transformer layers onto mobile chips requires keeping model files highly compressed while minimizing inter-class confusion among visually similar artifacts (such as matching antique beds or porcelain vases). 
                     </p>
                     <p>
-                        Through structured quantization routines, the final application footprint compressed down to a sleek **4 MB file size**, delivering an outstanding classification accuracy rating of **98.17%** over 124 asset classes with an average hardware execution speed of **122.34 ms**[cite: 4].
+                        Through structured quantization routines, the final application footprint compressed down to a sleek **4 MB file size**, delivering an outstanding classification accuracy rating of **98.17%** over 124 asset classes with an average hardware execution speed of **122.34 ms**.
                     </p>
                 </div>
             </section>
@@ -202,7 +203,7 @@ def calculate_composite_similarity(meta_vector_a, meta_vector_b, text_embed_a, t
                 </h2>
                 <div class="text-gray-600 dark:text-gray-400 leading-relaxed text-base italic">
                     <p>
-                        Evaluated across ISO/IEC 25010 standards, user surveys highlighted high system metrics (Visitor Score: 4.70, Admin Score: 4.81), proving that lightweight edge AI provides a reliable method for preserving cultural heritage and supporting independent public education[cite: 4, 4].
+                        Evaluated across ISO/IEC 25010 standards, user surveys highlighted high system metrics (Visitor Score: 4.70, Admin Score: 4.81), proving that lightweight edge AI provides a reliable method for preserving cultural heritage and supporting independent public education.
                     </p>
                 </div>
             </section>
